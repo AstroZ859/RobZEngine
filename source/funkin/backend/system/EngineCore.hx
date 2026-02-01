@@ -19,8 +19,7 @@ class EngineCore {
     public static var debugMode(default, null):Bool = false;
     public static var version(default, null):Null<String> = null;
 
-    public static final events:EventDispatcher = new EventDispatcher();
-
+    public static final events:EventDispatcher;
     public static var overlay:PerformanceOverlay;
 
     /**
@@ -34,6 +33,8 @@ class EngineCore {
         debugMode = debug;
         initialized = true;
         version = Application.meta.version;
+
+        events = new EventDispatcher();
 
         #if !mobile
         Lib.current.stage.addChild(overlay = new PerformanceOverlay());
