@@ -26,7 +26,7 @@
  
  If you want to compile the game, follow these steps:
  1. [Install Haxe 4.3.7](https://haxe.org/download/version/4.3.7/)
- 2. [Install HaxeFlixel](https://haxeflixel.com/documentation/install-haxeflixel/) after downloading Haxe (Is recommended skip this now)
+ 2. [Install HaxeFlixel](https://haxeflixel.com/documentation/install-haxeflixel/) after downloading Haxe (It is recommended to skip this step for now)
  
  Now open cmd and type the following commands:
  ```bash
