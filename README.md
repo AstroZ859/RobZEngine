@@ -1,35 +1,35 @@
 # Friday Night Funkin': RobZ Engine
- No description here yet.
+ No description available yet.
  > [!NOTE]
- > Remember to check import.hx before import a class that the archive already imports
+ > Remember to check import.hx before importing a class that is already imported there
  > 
- > [Also you can join our discord server for updates and announcements, just click here](https://discord.gg/NynuH8DTEk)
+ > [You can also join our Discord server for updates and announcements, just click here](https://discord.gg/NynuH8DTEk)
 
 ## RobZ Engine Team
- -RobZ (Creator, Programmer)
+ -**RobZ** (Creator, Programmer)
  
- -Gianfranco Xankin (Artist)
+ -**Gianfranco Xankin** (Artist)
 
 ## Special Thanks
- -Realistic Engine (Inspiration / Friend's Engine)
+ -**Realistic Engine** (Inspiration / Friend's Engine)
  
- -Codename Engine (Inspiration)
+ -**Codename Engine** (Inspiration)
 
 ## Build Instructions (Windows)
  > [!WARNING]
- > THIS ENGINE FOR NOW IS ONLY FOR WINDOWS AND ONLY 64 BIT
+ > THIS ENGINE IS CURRENTLY ONLY AVAILABLE FOR WINDOWS (64-BIT ONLY)
  > 
- > AND PLEASE DON'T USE THIS STILL BECAUSE THE ENGINE ISN'T FINISHED YET WAIT UNTIL ENGINE'S RELEASE
+ > AND PLEASE DO NOT USE THIS YET BECAUSE THE ENGINE ISN'T FINISHED YET WAIT UNTIL THE ENGINE'S RELEASE
  
  > [!CAUTION]
- > THE FOLLOWING INSTRUCTIONS IS SOME OUTDATED (still) IT WILL BE UPDATED AGAIN LATER
+ > THE FOLLOWING INSTRUCTIONS IS SOMEWHAT OUTDATED (STILL) IT WILL BE UPDATED AGAIN LATER
  
  If you want to compile the game, follow these steps:
  1. [Install Haxe 4.3.7](https://haxe.org/download/version/4.3.7/)
  2. [Install HaxeFlixel](https://haxeflixel.com/documentation/install-haxeflixel/) after downloading Haxe (Is recommended skip this now)
  
  Now open cmd and type the following commands:
- ```
+ ```bash
  haxelib install lime 8.1.2
  haxelib install openfl 9.5.0
  haxelib install flixel 5.3.1
@@ -42,18 +42,18 @@
  haxelib install hxdiscord_rpc 1.1.1
  ```
  After you have installed all the libraries go to the RobZEngine folder and open terminal and place:
- ```
+ ```bash
  lime test windows
  ```
  or
- ```
+ ```bash
  lime test windows -debug
  ```
  The lime test windows -debug is used to see the errors in the compilation.
 
- Is it normal that after compiling it tells me a warning at some point?
+ Is it normal to get warnings after compiling?
 
- Yes, if it is normal, it is not an error, it is just a warning.
+ Yes, if it is not red, then it is a warning not an error
 
 ### Logging
  Use `EngineCore.log()` instead of `trace` when debugging mods.

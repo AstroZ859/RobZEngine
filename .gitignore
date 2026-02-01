@@ -3,3 +3,4 @@ export/
 .haxelib/
 dump/
 setup-windows.txt
+checkreadme.md
