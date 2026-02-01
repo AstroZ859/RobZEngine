@@ -54,3 +54,7 @@
  Is it normal that after compiling it tells me a warning at some point?
 
  Yes, if it is normal, it is not an error, it is just a warning.
+
+### Logging
+ Use `EngineCore.log()` instead of `trace` when debugging mods.
+ Logs are automatically disabled in release builds.
