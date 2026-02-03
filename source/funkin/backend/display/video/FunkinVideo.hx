@@ -9,6 +9,8 @@ import funkin.backend.events.video.VideoEndEvent;
  * Provides an easy-to-use API over FlxVideoSprite,
  * avoiding low-level flags and signals.
  *
+ * TIP 1: You can prevent the video from finishing either by cancelling VideoEndEvent or by manually setting video.finished = true.
+ *
  * @author RobZ
  * @since 0.1.0
  */
