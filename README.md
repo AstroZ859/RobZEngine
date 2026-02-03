@@ -2,8 +2,8 @@
  No description available yet.
  > [!NOTE]
  > Remember to check import.hx before importing a class that is already imported there
- > 
- > [You can also join our Discord server for updates and announcements, just click here](https://discord.gg/NynuH8DTEk)
+ >
+ > [You can also join our Discord server for updates and announcements, just click here (We're searching contributors too)](https://discord.gg/NynuH8DTEk)
 
 ## RobZ Engine Team
  -**RobZ** (Creator, Programmer)

@@ -17,7 +17,7 @@ class FunkinVideo extends FlxVideoSprite {
     public var loop:Bool = false;
 
     /** Whether the video has finished playback. */
-    public var finished(get, never):Bool;
+    public var finished(get, default):Bool;
     inline function get_finished() return _ended;
 
     /** Called when the video finishes (if not looping). */

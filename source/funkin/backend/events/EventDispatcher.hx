@@ -32,6 +32,33 @@ class EventDispatcher {
     }
 
     /**
+     * Removes a listener for a specific event type.
+     *
+     * @param eventClass The class of the event to remove.
+     * @param listener The callback to remove.
+     */
+    public function removeListener<T:EngineEvent>(eventClass:Class<T>, listener:EventListener<T>):Bool {
+        if (!listeners.exists(eventClass))
+            return false;
+
+        var list = listeners.get(eventClass);
+        var removed = false;
+
+        for (i in 0...list.length) {
+            if (list[i] == listener) {
+                list.splice(i, 1);
+                removed = true;
+                break;
+            }
+         }
+
+        if (list.length == 0)
+            listeners.remove(eventClass);
+
+        return removed;
+    }
+
+    /**
      * Dispatches an event to all registered listeners.
      *
      * @param event The event instance to dispatch.
@@ -43,7 +70,7 @@ class EventDispatcher {
         var list = listeners.get(eventClass);
         if (list == null) return;
 
-        for (listener in list) {
+        for (listener in list.copy()) {
             listener(event);
 
             // Stop propagation if handled

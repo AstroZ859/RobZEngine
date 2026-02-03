@@ -2,5 +2,6 @@
 export/
 .haxelib/
 dump/
+engine-templates/
 setup-windows.txt
 checkreadme.md
