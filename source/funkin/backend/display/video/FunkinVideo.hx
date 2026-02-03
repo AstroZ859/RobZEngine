@@ -26,13 +26,16 @@ class FunkinVideo extends FlxVideoSprite {
     /** Called when the video finishes (if not looping). */
     public var onEnd:Void->Void;
 
+    /** The background of the video (if addBackground is true). */
+    public var videoBackground:Null<FlxSprite> = null;
+
     /** Internal guard to avoid multiple end calls. */
     var _ended:Bool = false;
 
-    /** Internal guard to avoid multiple destroy calls */
+    /** Internal guard to avoid multiple destroy calls. */
     var _destroyed:Bool = false;
 
-    /** Internal path for VideoEndEvent */
+    /** Internal path for VideoEndEvent. */
     var _path:Null<String> = null;
 
     /**
@@ -41,12 +44,22 @@ class FunkinVideo extends FlxVideoSprite {
      * @param path Path to the video file.
      * @param autoPlay Whether to start playing immediately.
      * @param loop Whether the video should loop.
+     * @param addBackground Whether the video should have a black background.
      */
-    public function new(path:String, autoPlay:Bool = false, loop:Bool = false) {
+    public function new(path:String, ?autoPlay:Bool = false, ?loop:Bool = false, ?addBackground:Bool = false) {
         super();
 
         this.loop = loop;
         this._path = path;
+
+        if (addBackground) {
+            if (videoBackground == null) {
+                videoBackground = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
+                add(videoBackground);
+            } else {
+                EngineCore.log('FunkinVideo: Video Background already exists, nothing added.');
+            }
+        }
 
         load(path, loop ? ['input-repeat=65545'] : null);
         if (autoPlay) play();
@@ -72,22 +85,33 @@ class FunkinVideo extends FlxVideoSprite {
         var event = new VideoEndEvent(this, _path, loop);
         EngineCore.events.dispatch(event);
 
-        if (event.cancelled) return;
+        if (event.cancelled) {
+            clearBackground();
+            return;
+        }
 
         if (onEnd != null) onEnd();
         _ended = true;
         destroy();
     }
 
+    function clearBackground():Void {
+        if (videoBackground != null) {
+            remove(videoBackground);
+            videoBackground = null;
+        }
+    }
+
     override function destroy():Void {
         if (_destroyed) return;
 
-        EngineCore.log('FunkinVideo: Video successfully destroyed.');
+        clearBackground();
 
         onEnd = null;
         _ended = false;
 
         super.destroy();
         _destroyed = true;
+        EngineCore.log('FunkinVideo: Video successfully destroyed.');
     }
 }
